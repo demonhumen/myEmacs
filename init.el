@@ -14,7 +14,23 @@
 
 (global-company-mode t)
 
-(setq cursor-type 'bar)
+(setq-default cursor-type 'b
+
+(setq make-backup-files nil)
+
+(require 'org)
+(setq org-src-fontify-natively t)
+
+(require 'recentf)
+(recentf-mode t)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+(delete-selection-mode t)
+
+(setq initial-frame-alist (quote ((fullscreen , maximized))))
+
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 (global-linum-mode t)
 
