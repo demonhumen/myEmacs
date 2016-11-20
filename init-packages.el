@@ -1,8 +1,6 @@
 (require 'cl)
 
 (when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/package/") t))
 
 (defvar tz/packages '(
@@ -36,7 +34,6 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
-(require 'smartparens-config)
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
                                         ;
 (smartparens-global-mode t)
@@ -58,3 +55,5 @@
 
 (require 'popwin)
 (popwin-mode t)
+
+(provide 'init-packages)
