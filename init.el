@@ -1,24 +1,21 @@
 (package-initialize)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(electric-indent-mode -1)
-(linum-mode t)
-(setq inhibit-splash-screen t)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (defun open-my-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(global-set-key (kdb "<f5>") 'open-my-init-file)
+(require 'init-func.el)
+(require 'init-packages)
+(require 'init-ui)
+(require 'init-better-defaults)
+(require 'init-org)
+(require 'init-keybindings)
 
-(global-company-mode t)
 
-(setq cursor-type 'bar)
+(require 'nodejs-repl)
 
-(global-linum-mode t)
+(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
-(custom-set-variables
- '(package-selected-packages (quote (company))))
-(custom-set-faces
- )
+(load-file custom-file)
